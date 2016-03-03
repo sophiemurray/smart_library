@@ -6,8 +6,11 @@ pro ar_setup, ar_path=inar_path, ar_param=inar_param, ar_struct=inar_struct, $
 
 ;readcol,''
 
+;S Murray - changed Paul's default directory for cron job
+smart_path = '/home/h05/smurray/codes/SMART/trunk/smart_library/'
+
 ;Set default variables
-sysvars={ar_path:['!AR_PATH','~/science/procedures/smart_auxiliary/'], ar_param:['!AR_PARAM','ar_param.txt'], ar_struct:['!AR_STRUCT','ar_struct_param.txt']}
+sysvars={ar_path:['!AR_PATH',smart_path], ar_param:['!AR_PARAM','ar_param.txt'], ar_struct:['!AR_STRUCT','ar_struct_param.txt']}
 
 if keyword_set(get) then begin
 	;check if setup has been run
