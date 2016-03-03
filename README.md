@@ -1,6 +1,14 @@
 smart_library
 =============
 
+Sophie's Fork:
+--------------
+My contriubution to this library are the routines in the ``near-real-time`` folder, and ``ar_evol.pro``, which allow SMART to be run automatically for operational space weather forecasting use. 
+
+
+Original SMART code:
+--------------------
+
 An SSW IDL routine library to be used by SMART itself and users wishing to analyse SMART detections.
 
 Requirements:
