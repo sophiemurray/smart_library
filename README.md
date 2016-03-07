@@ -5,7 +5,7 @@ Sophie's Fork:
 --------------
 My contribution to this library are the routines in the ``near-real-time`` folder, and ``ar_evol.pro``, which allow SMART to be run automatically for operational space weather forecasting use. 
 
-Also addded are routines to grab and process active regions with SMART to be run with the HEXA NLFF code developed at University of St Andrews. This was part of a Met Office summer student project, and it is worth noting that HEXA is currently not open access.
+Also added are routines to grab and process active regions with SMART to be run with the HEXA NLFF code developed at University of St Andrews. This was part of a Met Office summer student project, and it is worth noting that HEXA is currently not open access.
 
 
 Original SMART code:
