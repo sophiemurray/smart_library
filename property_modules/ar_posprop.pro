@@ -1,3 +1,4 @@
+;Edited by S Murray to get boundaries of blobs for Hexa (2015-07-30)
 ;Input a processed (pre-run mag cos-corr) data map and mask
 ;The tot. area, pos. area, neg. area, and
 ;	total, signed, fractional signed, negative, and positive flux
@@ -47,7 +48,11 @@ xyrcoord,[0,sz],xx,yy
 ;Determine the bounding box center positions
    xcenbnd=mean(float(minmax(xwar))) ;in pixels from lower left corner of the image FOV
    ycenbnd=mean(float(minmax(ywar))) ;in pixels
-
+   xminbnd=float((minmax(xwar))[0]) ;added by smurray
+   yminbnd=float((minmax(ywar))[0])	;added by smurray
+   xmaxbnd=float((minmax(xwar))[1])	;added by smurray	
+   ymaxbnd=float((minmax(ywar))[1]);added by smurray
+   
    px2hc, xcenbnd, ycenbnd, hcxbnd, hcybnd, dx=dx, dy=dy, xc=xc, yc=yc, xs=sz[0], ys=sz[1]
 
    hc2hg, hcxbnd, hcybnd, hgxbnd, hgybnd, carxbnd, date=date, rsunarcsec=rsun
@@ -69,6 +74,10 @@ xyrcoord,[0,sz],xx,yy
    hc2hg, hcxflx, hcyflx, hgxflx, hgyflx, carxflx, date=date, rsunarcsec=rsun
 
 ;Fill structure
+inoutstr.xminbnd=xminbnd
+inoutstr.yminbnd=yminbnd
+inoutstr.xmaxbnd=xmaxbnd
+inoutstr.ymaxbnd=ymaxbnd
 inoutstr.xcenbnd=xcenbnd
 inoutstr.ycenbnd=ycenbnd
 inoutstr.xcenflx=xcenflx
@@ -119,12 +128,14 @@ if n_elements(indatafile) ne 0 then begin
 	blankstr={datafile:indatafile[0],arid:0,xcenbnd:0d, ycenbnd:0d, xcenflx:0d, ycenflx:0d, xcenarea:0d, ycenarea:0d, $
           hcxbnd:0d, hcybnd:0d, hcxflx:0d, hcyflx:0d, hcxarea:0d, hcyarea:0d, $
           hglonbnd:0d, hglatbnd:0d, hglonflx:0d, hglatflx:0d, hglonarea:0d, hglatarea:0d, $
-          carlonbnd:0d,  carlonflx:0d,  carlonarea:0d}
+          carlonbnd:0d,  carlonflx:0d,  carlonarea:0d, $
+          xminbnd:0d, yminbnd:0d, xmaxbnd:0d, ymaxbnd:0d}
 endif else begin
 	blankstr={arid:0,xcenbnd:0d, ycenbnd:0d, xcenflx:0d, ycenflx:0d, xcenarea:0d, ycenarea:0d, $
           hcxbnd:0d, hcybnd:0d, hcxflx:0d, hcyflx:0d, hcxarea:0d, hcyarea:0d, $
           hglonbnd:0d, hglatbnd:0d, hglonflx:0d, hglatflx:0d, hglonarea:0d, hglatarea:0d, $
-          carlonbnd:0d,  carlonflx:0d,  carlonarea:0d}
+          carlonbnd:0d,  carlonflx:0d,  carlonarea:0d, $
+          xminbnd:0d, yminbnd:0d, xmaxbnd:0d, ymaxbnd:0d}
 endelse
 
 arstr=blankstr
